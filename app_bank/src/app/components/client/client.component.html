@@ -1,0 +1,89 @@
+<navbar></navbar>
+
+<section class="page-section" id="profileInfo">
+  <div class="container">
+    <div class="row" id="profileInfoBox">
+      <div class="profile-info col-lg-4">
+        <p class="h3 mt-2" id="clientName">
+          <span class="">{{client.username}}</span>
+        </p>
+        <hr class="divider my-4">
+        <p>
+          <span class="profile-category">Имя:</span>
+          <span class="ml-3">{{client.name}}</span>
+        </p>
+        <p>
+          <span class="profile-category">Фамилия:</span>
+          <span class="ml-3">{{client.surname}}</span>
+        </p>
+        <button class="btn btn-primary btn-xl mt-3" id="editBtn" data-toggle="modal" data-target="#editClientModal">Редактировать</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="editClientModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Редактировать профиль</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form [formGroup]="form" (ngSubmit)="submit()">
+                <div class="modal-body">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="editName">Имя</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="name"
+                           placeholder="{{client.name}}" aria-label="Default" aria-describedby="editName">
+                  </div>
+                  <div *ngIf="name.hasError('required') && name.touched" class="error text-primary">
+                    Name is required
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="editUsername">Username</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="username"
+                           placeholder="{{client.username}}" aria-label="Default" aria-describedby="editUsername">
+                  </div>
+                  <div *ngIf="username.hasError('required') && username.touched" class="error text-primary">
+                    Username is required
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Save changes</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="text-center mt-0">Список депозитов</h2>
+    <hr class="divider my-4">
+    <div class="row">
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let contract of clientContracts">
+          <p class="h3 mt-2" id="contractName">
+            <span class="">{{contract.depositName}}</span>
+          </p>
+          <p>
+            <span class="profile-category">Сумма депозита:</span>
+            <span class="ml-3">{{contract.depositAmount}}</span>
+          </p>
+          <p>
+            <span class="profile-category">Дата окончания депозитного периода:</span>
+            <span class="ml-3">{{contract.contractEndDate}}</span>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

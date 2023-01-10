@@ -1,0 +1,18 @@
+<navbar></navbar>
+
+<div class="container">
+  <h2 class="text-center mt-0">Список клиентов</h2>
+  <hr class="divider my-4">
+  <div class="row">
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let client of clientsList">
+        <p class="h3 mt-2" id="userName">
+          <span class="">{{client.surname}}</span>
+        </p>
+        <p class="text-muted mb-3"> {{client.name}}</p>
+        <p class="text-muted mb-2"> {{client.birthdayDate}}</p>
+      </li>
+    </ul>
+  </div>
+</div>

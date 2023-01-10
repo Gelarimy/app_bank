@@ -1,0 +1,35 @@
+<navbar></navbar>
+
+<div class="container">
+  <h2 class="text-center mt-0">Доступные вклады</h2>
+  <hr class="divider my-4">
+  <div class="row">
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let plan of depositPlans">
+        <p class="h3 mt-2" id="userName">
+          <span class="">{{plan.name}}</span>
+        </p>
+        <p>
+          <span class="profile-category">Срок депозита:</span>
+          <span class="ml-3">{{plan.period}}</span>
+        </p>
+        <p>
+          <span class="profile-category">Ставка:</span>
+          <span class="ml-3">{{plan.depositInterest}}</span>
+        </p>
+        <p>
+          <span class="profile-category">Минимальная сумма вклада:</span>
+          <span class="ml-3">{{plan.minimumDepositAmount}}</span>
+        </p>
+        <p>
+          <span class="profile-category">Валюта депозита:</span>
+          <span class="ml-3">{{plan.typeOfCurrency}}</span>
+        </p>
+        <button mat-raised-button color="primary" class="left-interval" (click)="createDepositButton(plan)">
+          Открыть депозит
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

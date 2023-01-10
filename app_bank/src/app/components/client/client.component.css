@@ -1,0 +1,31 @@
+.text-pr-r {
+  margin-left: 1rem;
+}
+
+.profile-category {
+  color: coral;
+}
+
+.error{
+  color: red;
+  margin: 0.5rem;
+}
+
+#editBtn {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+#profileInfoBox {
+  border: solid coral;
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+#fullName {
+}
+
+#userName {
+  text-align: center;
+}

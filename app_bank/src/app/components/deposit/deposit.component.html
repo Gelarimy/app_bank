@@ -1,0 +1,64 @@
+<navbar></navbar>
+
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+
+      <form [formGroup]="depositForm">
+        <p class="h3 mt-2" id="userName" style="text-align:center ">
+          <span class="">{{this.currentPlan.name}}</span>
+        </p>
+        <p style="text-align:center ">
+          <span class="profile-category">Срок депозита:</span>
+          <span class="ml-3" >{{this.currentPlan.period}}</span>
+          <span class="profile-category"> месяца(ев)</span>
+        </p>
+        <p style="text-align:center ">
+          <span class="profile-category">Ставка:</span>
+          <span class="ml-3">{{this.currentPlan.depositInterest}}</span>
+        </p>
+        <p style="text-align:center ">
+          <span class="profile-category">Минимальная сумма вклада:</span>
+          <span class="ml-3">{{this.currentPlan.minimumDepositAmount}}</span>
+        </p>
+        <p style="text-align:center ">
+          <span class="profile-category">Валюта депозита:</span>
+          <span class="ml-3">{{this.currentPlan.typeOfCurrency}}</span>
+        </p>
+
+        <p style="text-align:center "><span class="login100-form-title" >
+						Открытие депозита
+					</span></p>
+
+        <div class="wrap-input100 validate-input" style="text-align:center ">
+          <input class="input100" type="text" formControlName="depositAmount" placeholder="Сумма депозита">
+
+          <span class="focus-input100"></span>
+
+        </div>
+
+        <div *ngIf="depositCreationFailed" class="error container-login100-form-btn text-primary " align="center">
+          Не удалось открыть депозит, проверьте корректность введенных данных
+        </div>
+
+        <div class="container-login100-form-btn " align="center">
+          <button class="login100-form-btn" (click)="submit()" >
+            Открыть депозит
+          </button>
+          <div *ngIf="depositAmount.hasError('required') && depositAmount.touched" class="error text-primary">
+            Сумма депозита обязательна
+          </div>
+
+          <div *ngIf="depositAmount.hasError('min') && depositAmount.touched" class="error text-primary">
+            Минимальная сумма депозита не может быть меньше 100
+          </div>
+
+          <div *ngIf="depositAmount.hasError('max') && depositAmount.touched" class="error text-primary">
+            Максимальная сумма депозита не может быть больше 100000
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

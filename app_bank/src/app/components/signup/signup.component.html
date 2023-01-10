@@ -1,0 +1,252 @@
+<navbar></navbar>
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+
+      <form class="login100-form" [formGroup]="registrationFormGroup">
+					<span class="login100-form-title">
+						Регистрация
+					</span>
+
+        <div class="wrap-input100 validate-input" data-validate="Password is required">
+          <input class="input100" type="password" formControlName="password" placeholder="Пароль">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="password.hasError('required') && password.touched" class="error text-primary">
+          "Пароль" обязателен
+        </div>
+        <div class="wrap-input100 validate-input" data-validate="Valid surname is required">
+          <input class="input100" type="text" formControlName="surname" placeholder="Фамилия">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="surname.hasError('required') && surname.touched" class="error text-primary">
+          "Фамилия" обязательна
+        </div>
+        <div class="wrap-input100 validate-input" data-validate="Valid name is required">
+          <input class="input100" type="text" formControlName="name" placeholder="Имя">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="name.hasError('required') && name.touched" class="error text-primary">
+          "Имя" обязательно
+        </div>
+        <div class="wrap-input100 validate-input" data-validate="Valid second name is required">
+          <input class="input100" type="text" formControlName="secondName" placeholder="Отчество">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="secondName.hasError('required') && secondName.touched" class="error text-primary">
+          "Отчество" обязательно
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="birthdayDate" placeholder="Дата Рождения (формат YYYY-MM-DD)">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="birthdayDate.hasError('required') && birthdayDate.touched" class="error text-primary">
+          "Дата рождения" обязательна
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="passportNumber" placeholder="Серия и Номер Паспорта">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="passportNumber.hasError('required') && passportNumber.touched" class="error text-primary">
+          "Серия и номер паспорта" обязательны
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="issuedBy" placeholder="Кем выдан">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="issuedBy.hasError('required') && issuedBy.touched" class="error text-primary">
+          "Кем выдан" обязательно
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="dateOfIssue" placeholder="Дата выдачи">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="dateOfIssue.hasError('required') && dateOfIssue.touched" class="error text-primary">
+          "Дата выдачи" обязательна
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="passportId" placeholder="Идентификационный номер">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="passportId.hasError('required') && passportId.touched" class="error text-primary">
+          "Идентификационный номер паспорта" обязателен
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="placeOfBirthday" placeholder="Место рождения">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+
+        <div *ngIf="placeOfBirthday.hasError('required') && placeOfBirthday.touched" class="error text-primary">
+          "Место рождения" обязательно
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="placeOfResidence" placeholder="Город фактического прибывания">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="placeOfResidence.hasError('required') && placeOfResidence.touched" class="error text-primary">
+          "Город фактического прибывания" обязателен
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="address" placeholder="Адрес фактического прибывания">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="address.hasError('required') && address.touched" class="error text-primary">
+          "Адрес фактического прибывания" обязателен
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="mobilePhoneNumber" placeholder="Мобильный номер телефона">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="homePhoneNumber" placeholder="Домашний номер телефона">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="email" placeholder="Email">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="email.hasError('email') && email.touched" class="error text-primary">
+          Некорректный адрес электронной почты
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="placeOfWork" placeholder="Место работы">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="position" placeholder="Должность">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="maritalStatus" placeholder="Семейное положение">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="maritalStatus.hasError('required') && maritalStatus.touched" class="error text-primary">
+          "Семейное положение" обязательно
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="citizenship" placeholder="Гражданство">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="citizenship.hasError('required') && citizenship.touched" class="error text-primary">
+          "Гражданство" обязательно
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="disability" placeholder="Инвалидность">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="disability.hasError('required') && disability.touched" class="error text-primary">
+          "Инвалидность" обязательно
+        </div>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" formControlName="monthlyIncome" placeholder="Ежемесячный доход">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+
+        <div class="form-check">
+          <label for="liableForMilitary"  style="text-align:right " class="form-check-label">Военнообязанный:</label>
+          <input id="liableForMilitary" type="checkbox" [(ngModel)]="liableForMilitary">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+
+        <div class="form-check">
+          <label for="pensioner"  style="text-align:center " class="form-check-label">Пенсионер:</label>
+          <input id="pensioner" type="checkbox" [(ngModel)]="pensioner">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+
+        <div *ngIf="registrationFailed" class="error container-login100-form-btn text-primary">
+          Не удалось зарегистрировать клиента с указанными параметрами, проверьте правильность введенных данных
+        </div>
+
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn" (click)="onRegistrationSubmit()">
+            Регистрация
+          </button>
+
+        </div>
+
+
+        <div class="text-center p-t-136">
+          <a class="txt2" (click)="navigateToUrl('login')">
+            Уже есть аккаунт
+            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

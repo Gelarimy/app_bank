@@ -1,0 +1,28 @@
+export class Client {
+  id:string;
+  name:string;
+  username:string;
+  surname:string;
+  secondName:string;
+  birthdayDate:Date;
+  passportNumber:string;
+  issuedBy:string;
+  dateOfIssue:Date;
+  passportId:string;
+  placeOfBirthday:string;
+  placeOfResidence:string;
+  address:string;
+  mobilePhoneNumber:string;
+  homePhoneNumber:string;
+  email:string;
+  placeOfWork:string;
+  position:string;
+  maritalStatus:string;
+  citizenship:string;
+  disability:string;
+  pensioner:boolean;
+  monthlyIncome:string;
+  liableForMilitary:boolean;
+  password:string;
+  role:string;
+}
