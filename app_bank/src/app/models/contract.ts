@@ -2,10 +2,12 @@
 export class Contract {
   id:string;
   relatedClient:string;
-  depositAmount:string;
-  depositName:string;
-  depositInterest:string;
+  amount:string;
+  planName:string;
+  interest:string;
   typeOfCurrency:string;
-  termOfContract:string;
+  termOfContract:number;
   contractEndDate:Date;
+  depositContract:boolean;
+  creditContract:boolean;
 }

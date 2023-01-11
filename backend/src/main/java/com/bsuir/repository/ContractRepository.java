@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ContractRepository extends CrudRepository<Contract, Integer> {
-    List<Contract> findAllByRelatedClient(int relatedClient);
+    List<Contract> findAllByRelatedClientAndDepositContract(int relatedClient, boolean depositContract);
+    List<Contract> findAllByRelatedClientAndCreditContract(int relatedClient, boolean creditContract);
 }

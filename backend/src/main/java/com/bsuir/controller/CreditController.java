@@ -10,13 +10,13 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("/contracts/deposits")
-public class DepositController {
+@RequestMapping("/contracts/credits")
+public class CreditController {
 
     private final ContractService contractService;
 
     @Autowired
-    public DepositController(ContractService contractService) {
+    public CreditController(ContractService contractService) {
         this.contractService = contractService;
     }
 
@@ -27,7 +27,7 @@ public class DepositController {
     }
 
     @RequestMapping(value = "/plans", method = RequestMethod.GET)
-    public List<Plan> getDepositPlans() {
-        return contractService.getAllDepositPlans();
+    public List<Plan> getCreditPlans() {
+        return contractService.getAllCreditPlans();
     }
 }

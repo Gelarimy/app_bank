@@ -10,19 +10,19 @@ import {Plan} from "../models/plan";
 @Injectable({
   providedIn: 'root'
 })
-export class DepositService {
+export class CreditService {
 
-  GET_DEPOSIT_PLANS_LIST = "/api/contracts/deposits/plans";
-  CREATE_DEPOSIT = "/api/contracts/deposits/create";
+  GET_CREDIT_PLANS_LIST = "/api/contracts/credits/plans";
+  CREATE_CREDIT= "/api/contracts/credits/create";
 
   constructor(private httpClient: HttpClient, private storageService: StorageService) {
   }
 
-  getDepositPlans(): Observable<Plan[]> {
-    return this.httpClient.get<Plan[]>(this.GET_DEPOSIT_PLANS_LIST);
+  getCreditPlans(): Observable<Plan[]> {
+    return this.httpClient.get<Plan[]>(this.GET_CREDIT_PLANS_LIST);
   }
 
-  createDeposit(deposit: Contract): Observable<HttpResponse<Contract>> {
-    return this.httpClient.post<any>(this.CREATE_DEPOSIT, deposit, {observe: 'response', responseType: 'json'});
+  createCredit(deposit: Contract): Observable<HttpResponse<Contract>> {
+    return this.httpClient.post<any>(this.CREATE_CREDIT, deposit, {observe: 'response', responseType: 'json'});
   }
 }

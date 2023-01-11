@@ -70,16 +70,38 @@
     <div class="row">
 
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let contract of clientContracts">
+        <li class="list-group-item" *ngFor="let contract of clientDeposits">
           <p class="h3 mt-2" id="contractName">
-            <span class="">{{contract.depositName}}</span>
+            <span class="">{{contract.planName}}</span>
           </p>
           <p>
             <span class="profile-category">Сумма депозита:</span>
-            <span class="ml-3">{{contract.depositAmount}}</span>
+            <span class="ml-3">{{contract.amount}}</span>
           </p>
           <p>
             <span class="profile-category">Дата окончания депозитного периода:</span>
+            <span class="ml-3">{{contract.contractEndDate}}</span>
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <hr class="divider my-4">
+    <h2 class="text-center mt-0">Список кредитов</h2>
+    <hr class="divider my-4">
+    <div class="row">
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let contract of clientCredits">
+          <p class="h3 mt-2" id="creditName">
+            <span class="">{{contract.planName}}</span>
+          </p>
+          <p>
+            <span class="profile-category">Сумма кредита:</span>
+            <span class="ml-3">{{contract.amount}}</span>
+          </p>
+          <p>
+            <span class="profile-category">Дата окончания кредитного периода:</span>
             <span class="ml-3">{{contract.contractEndDate}}</span>
           </p>
         </li>

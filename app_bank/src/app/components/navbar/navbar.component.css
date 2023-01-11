@@ -12,3 +12,7 @@
 .navbar-brand {
   cursor: pointer;
 }
+
+.navbar-nav {
+  margin-left: fill;
+}

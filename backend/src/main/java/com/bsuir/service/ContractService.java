@@ -9,6 +9,8 @@ public interface ContractService {
 
     Contract createContract(Contract contract);
     List<Plan> getAllDepositPlans();
-    List<Contract> getContractsByClientId(int clientId);
+    List<Plan> getAllCreditPlans();
+    List<Contract> getDepositContractsByClientId(int clientId);
+    List<Contract> getCreditContractsByClientId(int clientId);
     void updateBankDevelopmentFund(Contract contract);
 }

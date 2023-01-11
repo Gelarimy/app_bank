@@ -8,10 +8,10 @@ import {DepositService} from "../../services/deposit.service";
 
 @Component({
   selector: 'app-plan-list',
-  templateUrl: './plan-list.component.html',
-  styleUrls: ['./plan-list.component.css']
+  templateUrl: './deposit-plan-list.component.html',
+  styleUrls: ['./deposit-plan-list.component.css']
 })
-export class PlanListComponent implements OnInit {
+export class DepositPlanListComponent implements OnInit {
   public plan: Plan;
   public depositPlans: Plan[] = [];
   public selected: string;

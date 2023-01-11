@@ -1,0 +1,80 @@
+<navbar></navbar>
+
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+
+      <form [formGroup]="creditForm">
+        <p class="h3 mt-2" id="userName" style="text-align:center ">
+          <span class="">{{this.currentPlan.name}}</span>
+        </p>
+        <p style="text-align:center ">
+          <span class="profile-category">Максимальный период кредита:</span>
+          <span class="ml-3" >{{this.currentPlan.period}}</span>
+          <span class="profile-category"> месяца(ев)</span>
+        </p>
+        <p style="text-align:center ">
+          <span class="profile-category">Ставка:</span>
+          <span class="ml-3">{{this.currentPlan.interest}}</span>
+        </p>
+        <p style="text-align:center ">
+          <span class="profile-category">Максимальная сумма кредита:</span>
+          <span class="ml-3">{{this.currentPlan.maximumCreditAmount}}</span>
+        </p>
+        <p style="text-align:center ">
+          <span class="profile-category">Валюта кредита:</span>
+          <span class="ml-3">{{this.currentPlan.typeOfCurrency}}</span>
+        </p>
+
+        <p style="text-align:center "><span class="login100-form-title" >
+						Получение кредита
+					</span></p>
+
+        <div class="wrap-input100 validate-input" style="text-align:center ">
+          <input class="input100" type="text" formControlName="creditAmount" placeholder="Сумма кредита">
+          <span class="focus-input100"></span>
+
+        </div>
+        <div class="wrap-input100 validate-input" style="text-align:center ">
+          <input class="input100" type="text" formControlName="creditPeriod" placeholder="Срок кредита (в месяцах)">
+          <span class="focus-input100"></span>
+        </div>
+        <div *ngIf="depositCreationFailed" class="error container-login100-form-btn text-primary " align="center">
+          Не удалось получить кредит, проверьте корректность введенных данных
+        </div>
+
+        <div class="container-login100-form-btn " align="center">
+          <button class="login100-form-btn" (click)="submit()" >
+            Получить кредить
+          </button>
+          <div *ngIf="creditAmount.hasError('required') && creditAmount.touched" class="error text-primary">
+            Сумма кредита обязательна
+          </div>
+
+          <div *ngIf="creditAmount.hasError('max') && creditAmount.touched" class="error text-primary">
+            <span class="profile-category">Максимальная сумма кредита не может быть больше </span>
+            <span class="ml-3" >{{this.currentPlan.maximumCreditAmount}}</span>
+          </div>
+
+          <div *ngIf="creditAmount.hasError('min') && creditAmount.touched" class="error text-primary">
+            <span class="profile-category">Минимальная сумма кредита не может быть меньше 100</span>
+            <span class="ml-3" >{{this.currentPlan.typeOfCurrency}}</span>
+          </div>
+          <div *ngIf="creditPeriod.hasError('required') && creditPeriod.touched" class="error text-primary">
+            Период кредита обязателен
+          </div>
+
+          <div *ngIf="creditPeriod.hasError('max') && creditPeriod.touched" class="error text-primary">
+            <span class="profile-category">Максимальный период кредита не может быть больше</span>
+            <span class="ml-3" >{{this.currentPlan.period}}</span>
+            <span class="profile-category"> месяцев</span>
+          </div>
+          <div *ngIf="creditPeriod.hasError('min') && creditPeriod.touched" class="error text-primary">
+            <span class="profile-category">Минимальный период кредита не может быть меньше одного месяца</span>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

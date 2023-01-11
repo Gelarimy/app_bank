@@ -51,7 +51,11 @@ export class ClientService {
     return this.httpClient.get<Client[]>(this.GET_CLIENTS_LIST);
   }
 
-  getClientContracts(id: string): Observable<Contract[]> {
-    return this.httpClient.get<Contract[]>(this.GET_CLIENT_CONTRACTS + '/' + id + '/contracts');
+  getClientDepositContracts(id: string): Observable<Contract[]> {
+    return this.httpClient.get<Contract[]>(this.GET_CLIENT_CONTRACTS + '/' + id + '/deposits');
+  }
+
+  getClientCreditContracts(id: string): Observable<Contract[]> {
+    return this.httpClient.get<Contract[]>(this.GET_CLIENT_CONTRACTS + '/' + id + '/credits');
   }
 }

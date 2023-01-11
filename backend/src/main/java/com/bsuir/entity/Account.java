@@ -20,7 +20,7 @@ public class Account {
     @Column(name = "master_account")
     private BigInteger masterAccount;
 
-    @Column(name = "deposit_interest_account")
+    @Column(name = "interest_account")
     private BigInteger depositInterestAccount;
 
     @Column(name = "initial_deposit")
@@ -28,4 +28,10 @@ public class Account {
 
     @Column(name = "accrued_on_interest")
     private BigInteger accruedOnInterest;
+
+    @Column(name = "is_deposit_account")
+    private boolean depositAccount;
+
+    @Column(name = "is_credit_account")
+    private boolean creditAccount;
 }

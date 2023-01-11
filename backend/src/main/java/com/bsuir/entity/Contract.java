@@ -14,8 +14,8 @@ public class Contract {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "deposit_name")
-    private String depositName;
+    @Column(name = "plan_name")
+    private String planName;
 
     @Column(name = "related_client", nullable = false)
     private int relatedClient;
@@ -35,10 +35,16 @@ public class Contract {
     @Column(name = "term_of_contract")
     private String termOfContract;
 
-    @Column(name = "deposit_amount")
-    private String depositAmount;
+    @Column(name = "amount")
+    private String amount;
 
-    @Column(name = "deposit_interest")
-    private String depositInterest;
+    @Column(name = "interest")
+    private String interest;
+
+    @Column(name = "is_deposit_contract")
+    private boolean depositContract;
+
+    @Column(name = "is_credit_contract")
+    private boolean creditContract;
 
 }

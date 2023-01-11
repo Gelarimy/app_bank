@@ -3,7 +3,10 @@ export class Plan {
   name:string;
   description:string;
   typeOfCurrency:string;
-  period:string;
-  depositInterest:string;
+  period:number;
+  interest:string;
   minimumDepositAmount:number;
+  depositPlan:boolean;
+  creditPlan:boolean;
+  maximumCreditAmount:number;
 }

@@ -16,7 +16,9 @@ import { LandingComponent } from './components/landing/landing.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ClientslistComponent } from './components/clientslist/clientslist.component';
 import { DepositComponent } from './components/deposit/deposit.component';
-import { PlanListComponent } from './components/plan-list/plan-list.component';
+import { DepositPlanListComponent } from './components/plan-list/deposit-plan-list.component';
+import { CreditPlanListComponent } from './components/creditlist/credit-plan-list.component';
+import { CreditComponent } from './components/credit/credit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { PlanListComponent } from './components/plan-list/plan-list.component';
     NavbarComponent,
     ClientslistComponent,
     DepositComponent,
-    PlanListComponent
+    DepositPlanListComponent,
+    CreditPlanListComponent,
+    CreditComponent
   ],
   imports: [
     BrowserModule,

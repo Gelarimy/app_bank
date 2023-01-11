@@ -2,8 +2,6 @@ package com.bsuir.controller;
 
 import com.bsuir.entity.Client;
 import com.bsuir.entity.Contract;
-import com.bsuir.security.ClientTokenModel;
-import com.bsuir.service.AuthService;
 import com.bsuir.service.ClientService;
 import com.bsuir.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -46,8 +43,13 @@ public class ClientController {
         return new ResponseEntity<>("Client profile updated", HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(value = "/{id}/contracts", method = RequestMethod.GET)
-    public List<Contract> getClientContracts(@PathVariable(name = "id") int id) {
-        return this.contractService.getContractsByClientId(id);
+    @RequestMapping(value = "/{id}/deposits", method = RequestMethod.GET)
+    public List<Contract> getClientDepositContracts(@PathVariable(name = "id") int id) {
+        return this.contractService.getDepositContractsByClientId(id);
+    }
+
+    @RequestMapping(value = "/{id}/credits", method = RequestMethod.GET)
+    public List<Contract> getClientCreditContracts(@PathVariable(name = "id") int id) {
+        return this.contractService.getCreditContractsByClientId(id);
     }
 }

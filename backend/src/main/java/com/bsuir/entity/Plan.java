@@ -3,6 +3,7 @@ package com.bsuir.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 
 @Data
 @Entity
@@ -23,11 +24,20 @@ public class Plan {
     private String typeOfCurrency;
 
     @Column(name = "period")
-    private String period;
+    private int period;
 
-    @Column(name = "deposit_interest")
-    private String depositInterest;
+    @Column(name = "interest")
+    private String interest;
 
     @Column(name = "minimum_deposit_amount")
     private String minimumDepositAmount;
+
+    @Column(name = "is_credit_plan")
+    private boolean creditPlan;
+
+    @Column(name = "is_deposit_plan")
+    private boolean depositPlan;
+
+    @Column(name = "maximum_credit_amount")
+    private BigInteger maximumCreditAmount;
 }

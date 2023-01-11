@@ -1,0 +1,34 @@
+<navbar></navbar>
+
+<div class="container">
+  <h2 class="text-center mt-0">Доступные кредиты</h2>
+  <hr class="divider my-4">
+  <div class="row">
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let plan of creditPlans">
+        <p class="h3 mt-2" id="userName">
+          <span class="">{{plan.name}}</span>
+        </p>
+        <p>
+          <span class="profile-category">Максимальный срок кредитования:</span>
+          <span class="ml-3">{{plan.period}}</span>
+          <span class="profile-category"> месяцев</span>
+        </p>
+        <p>
+          <span class="profile-category">Проценты за пользование кредитом:</span>
+          <span class="ml-3">{{plan.interest}}</span>
+          <span class="profile-category"> годовых</span>
+        </p>
+        <p>
+          <span class="profile-category">Максимальная сумма кредита:</span>
+          <span class="ml-3">{{plan.maximumCreditAmount}}</span>
+          <span class="ml-3">{{plan.typeOfCurrency}}</span>
+        </p>
+        <button mat-raised-button color="primary" class="left-interval" (click)="createCreditButton(plan)">
+          Получить кредит
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

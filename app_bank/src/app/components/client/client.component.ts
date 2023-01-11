@@ -14,7 +14,8 @@ import {Contract} from "../../models/contract";
 })
 export class ClientComponent implements OnInit {
   client: Client;
-  clientContracts: Contract[] = [];
+  clientDeposits: Contract[] = [];
+  clientCredits: Contract[] = [];
   form: FormGroup = new FormGroup({
     name: new FormControl('', [
       Validators.required
@@ -29,10 +30,15 @@ export class ClientComponent implements OnInit {
 
   ngOnInit() {
     this.client = this.storageService.currentClient;
-    this.clientService.getClientContracts(this.client.id).subscribe( response => {
-        this.clientContracts = response;
-        console.log(this.clientContracts);
-    })
+    this.clientService.getClientDepositContracts(this.client.id).subscribe(response => {
+        this.clientDeposits = response;
+        console.log(this.clientDeposits);
+
+    });
+    this.clientService.getClientCreditContracts(this.client.id).subscribe(response => {
+      this.clientCredits = response;
+      console.log(this.clientCredits);
+    });
   }
 
   redirect(url: string) {

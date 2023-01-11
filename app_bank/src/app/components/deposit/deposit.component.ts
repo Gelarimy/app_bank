@@ -34,12 +34,16 @@ export class DepositComponent implements OnInit {
   submit() {
     if (this.depositForm.valid) {
       this.deposit = new Contract();
-      this.deposit.depositAmount = this.depositForm.get('depositAmount').value;
+      this.deposit.amount = this.depositForm.get('depositAmount').value;
       this.deposit.relatedClient = this.storageService.currentClient.id;
       this.deposit.termOfContract = this.storageService.currentPlan.period;
-      this.deposit.depositName = this.storageService.currentPlan.name;
-      this.deposit.depositInterest = this.storageService.currentPlan.depositInterest;
+      this.deposit.planName = this.storageService.currentPlan.name;
+      this.deposit.interest = this.storageService.currentPlan.interest;
+
       this.deposit.typeOfCurrency = this.storageService.currentPlan.typeOfCurrency;
+      this.deposit.depositContract = true;
+      this.deposit.creditContract = false;
+      console.log(this.deposit);
       this.depositService.createDeposit(this.deposit).subscribe(
         response => {
           this.deposit = response.body;

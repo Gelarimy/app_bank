@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface PlanRepository extends CrudRepository<Plan, Integer> {
     List<Plan> findAll();
+    List<Plan> findAllByDepositPlan(boolean depositPlan);
+    List<Plan> findAllByCreditPlan(boolean depositPlan);
 }

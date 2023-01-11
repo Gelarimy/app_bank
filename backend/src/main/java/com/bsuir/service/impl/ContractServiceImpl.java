@@ -43,10 +43,9 @@ public class ContractServiceImpl implements ContractService {
         contract.setContractStartDate(calendar.getTime());
         Account tempAccount = new Account();
         tempAccount.setRelatedClient(contract.getRelatedClient());
-        tempAccount.setMasterAccount(new BigInteger(generateAccountNumber()));
-        tempAccount.setDepositInterestAccount(new BigInteger(generateAccountNumber()));
-        tempAccount.setInitialDeposit(new BigInteger(contract.getDepositAmount()));
-
+        tempAccount.setInitialDeposit(new BigInteger(contract.getAmount()));
+        tempAccount.setDepositAccount(contract.isDepositContract());
+        tempAccount.setCreditAccount(contract.isCreditContract());
         if (refillContractParameters(tempAccount) != null) {
             contract.setRelatedAccount(accountService.saveAccount(tempAccount).getId());
         }
@@ -57,12 +56,18 @@ public class ContractServiceImpl implements ContractService {
 
     public void updateBankDevelopmentFund(Contract contract) {
         BankDevelopmentFund bankDevelopmentFund = developmentFundRepository.findBankDevelopmentFundById(1).get();
-        bankDevelopmentFund.setBalance(bankDevelopmentFund.getBalance().add(new BigInteger(contract.getDepositAmount())));
+        if (contract.isDepositContract()) {
+            bankDevelopmentFund.setBalance(bankDevelopmentFund.getBalance().add(new BigInteger(contract.getAmount())));
+        }
+        if (contract.isCreditContract()) {
+            bankDevelopmentFund.setBalance(bankDevelopmentFund.getBalance().subtract(new BigInteger(contract.getAmount())));
+        }
         developmentFundRepository.save(bankDevelopmentFund);
     }
 
     private Account refillContractParameters(Account account) {
-
+        account.setMasterAccount(new BigInteger(generateAccountNumber()));
+        account.setDepositInterestAccount(new BigInteger(generateAccountNumber()));
         List<Account> accounts = accountRepository.findAllByDepositInterestAccount(account.getDepositInterestAccount());
         List<Account> accounts2 = accountRepository.findAllByMasterAccount(account.getMasterAccount());
         if (accounts.isEmpty() && accounts2.isEmpty()) {
@@ -72,12 +77,21 @@ public class ContractServiceImpl implements ContractService {
     }
 
     public List<Plan> getAllDepositPlans() {
-        return planRepository.findAll();
+        return planRepository.findAllByDepositPlan(true);
+    }
+
+    public List<Plan> getAllCreditPlans() {
+        return planRepository.findAllByCreditPlan(true);
     }
 
     @Override
-    public List<Contract> getContractsByClientId(int clientId) {
-        return this.contractRepository.findAllByRelatedClient(clientId);
+    public List<Contract> getDepositContractsByClientId(int clientId) {
+        return this.contractRepository.findAllByRelatedClientAndDepositContract(clientId, true);
+    }
+
+    @Override
+    public List<Contract> getCreditContractsByClientId(int clientId) {
+        return this.contractRepository.findAllByRelatedClientAndCreditContract(clientId, true);
     }
 
     private String generateAccountNumber() {
