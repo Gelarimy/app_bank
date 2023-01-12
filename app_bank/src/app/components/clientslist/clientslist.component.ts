@@ -20,7 +20,6 @@ export class ClientslistComponent implements OnInit {
               private storageService: StorageService, private clientService: ClientService) {
   }
 
-
   ngOnInit() {
     if (this.clientService.isAuthenticated()) {
       this.clientService.getClientsList().subscribe(clients => {

@@ -13,4 +13,5 @@ public interface ContractService {
     List<Contract> getDepositContractsByClientId(int clientId);
     List<Contract> getCreditContractsByClientId(int clientId);
     void updateBankDevelopmentFund(Contract contract);
+    void bankDateClosure();
 }

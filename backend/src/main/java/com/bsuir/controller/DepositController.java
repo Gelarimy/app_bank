@@ -30,4 +30,9 @@ public class DepositController {
     public List<Plan> getDepositPlans() {
         return contractService.getAllDepositPlans();
     }
+
+    @PostMapping(value = "/closure")
+    public void bankDayClosure() {
+        contractService.bankDateClosure();
+    }
 }

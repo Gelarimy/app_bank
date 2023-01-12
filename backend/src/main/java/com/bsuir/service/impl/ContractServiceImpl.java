@@ -65,6 +65,11 @@ public class ContractServiceImpl implements ContractService {
         developmentFundRepository.save(bankDevelopmentFund);
     }
 
+    @Override
+    public void bankDateClosure() {
+        //todo
+    }
+
     private Account refillContractParameters(Account account) {
         account.setMasterAccount(new BigInteger(generateAccountNumber()));
         account.setDepositInterestAccount(new BigInteger(generateAccountNumber()));

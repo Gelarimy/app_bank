@@ -4,17 +4,21 @@
   <div class="container">
     <div class="row" id="profileInfoBox">
       <div class="profile-info col-lg-4">
-        <p class="h3 mt-2" id="clientName">
-          <span class="">{{client.username}}</span>
+        <p>
+          <span class="profile-category">Фамилия:</span>
+          <span class="ml-3">{{client.surname}}</span>
         </p>
-        <hr class="divider my-4">
         <p>
           <span class="profile-category">Имя:</span>
           <span class="ml-3">{{client.name}}</span>
         </p>
         <p>
-          <span class="profile-category">Фамилия:</span>
-          <span class="ml-3">{{client.surname}}</span>
+          <span class="profile-category">Отчество:</span>
+          <span class="ml-3">{{client.secondName}}</span>
+        </p>
+        <p>
+          <span class="profile-category">Серия и номер паспорта:</span>
+          <span class="ml-3">{{client.passportNumber}}</span>
         </p>
         <button class="btn btn-primary btn-xl mt-3" id="editBtn" data-toggle="modal" data-target="#editClientModal">Редактировать</button>
 

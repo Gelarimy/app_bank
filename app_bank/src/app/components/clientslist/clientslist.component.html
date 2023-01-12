@@ -9,9 +9,14 @@
       <li class="list-group-item" *ngFor="let client of clientsList">
         <p class="h3 mt-2" id="userName">
           <span class="">{{client.surname}}</span>
+          <span class="profile-category">&nbsp;</span>
+          <span class="profile-category">{{client.name}}</span>
+          <span class="profile-category">&nbsp;</span>
+          <span class="profile-category">{{client.secondName}}</span>
         </p>
-        <p class="text-muted mb-3"> {{client.name}}</p>
-        <p class="text-muted mb-2"> {{client.birthdayDate}}</p>
+        <span class="profile-category">{{client.mobilePhoneNumber}}</span>
+        <p class="text-muted mb-2"> {{client.passportNumber}}</p>
+        <p class="text-muted mb-2"> {{client.address}}</p>
       </li>
     </ul>
   </div>
